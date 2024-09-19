@@ -1,8 +1,11 @@
-import { createRoot } from 'react-dom/client';
-import Home from './components/Home';
 import React from 'react';
-const container = document.getElementById('app');
-if (container != null) {
-    const root = createRoot(container);
-    root.render(<Home  />);
-}
+import { createInertiaApp } from '@inertiajs/inertia-react';
+import { createRoot } from 'react-dom/client';
+
+createInertiaApp({
+    resolve: name => require(`./Pages/${name}`),
+    setup({ el, App, props }) {
+        const root = createRoot(el);
+        root.render(<App {...props} />);
+    },
+});

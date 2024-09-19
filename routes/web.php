@@ -1,7 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', function () {
-    return view('app');
+    return Inertia::render('AcornHome');
+});
+
+Route::get('/external-catalogue', function () {
+    return Inertia::render('ExternalCatalogue');
 });
