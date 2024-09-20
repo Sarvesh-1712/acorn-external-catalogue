@@ -1,12 +1,24 @@
 import React from 'react';
 import { Inertia } from '@inertiajs/inertia';
 
-const ExternalCatalogue = () => {
+interface Content {
+    fullname: string;
+    summary: string;
+    imageurl: string;
+}
+
+interface CatalogueProps {
+    contents: Content[];
+}
+
+const ExternalCatalogue: React.FC<CatalogueProps> = ($contents) => {
+    console.log($contents);
+
     return (
-        <div>
+        <>
             <h1>External Catalogue Page -- HOME</h1>
             <button onClick={() => Inertia.visit('/')}>Goto Home</button>
-        </div>
+        </>
     );
 };
 
