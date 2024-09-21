@@ -44,9 +44,7 @@ class CatalogueController extends Controller {
                         $contents[] = (new Program($content['contentid'], $content['fullname'], $content['imageurl'], $content['summary']))->toArray();
                     } 
                 }
-                return  Inertia::render('ExternalCatalogue', [
-                    'contents' => $contents,
-                ]);
+                return  response()->json($contents);
             }
         } catch (\Exception $e) {
             return response()->json(['error' => 'Unable to fetch data: ' . $e->getMessage()], 500);

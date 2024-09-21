@@ -10,8 +10,10 @@
       "outDir": "./public/js"
     },
     "include": [
+      "resources/assets/*.png",
       "resources/ts/*.tsx",
-      "resources/ts/**/*.tsx"
+      "resources/ts/**/*.tsx",
+      "resources/ts/**/*.png",
     ],
     "exclude": [
       "node_modules"

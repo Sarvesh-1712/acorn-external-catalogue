@@ -4,7 +4,14 @@ use Inertia\Inertia;
 use App\Http\Controllers\CatalogueController;
 
 Route::get('/', function () {
-    return Inertia::render('AcornHome');
+    return view('app');
 });
 
-Route::get('/external-catalogue', [CatalogueController::class, 'getContents']);
+Route::get('/contents', [CatalogueController::class, 'getContents']);
+
+// Catch-all route for React Router
+Route::get('/catalogue', function () {
+    return view('app'); // Return the main Blade file
+})->where('any', '.*');
+
+

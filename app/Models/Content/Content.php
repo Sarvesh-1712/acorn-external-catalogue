@@ -47,6 +47,5 @@ abstract class Content
             "contentid" => $this->getContentId(),
             "contenttype" => $this->getContentType()
         );
-        
     }
 }
