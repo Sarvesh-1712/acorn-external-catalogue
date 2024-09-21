@@ -21,3 +21,6 @@ yarn-error.log
 /.vscode
 /.zed
 .gitattributes
+.DS_Store
+public/.DS_Store
+public/bundle-report.html
