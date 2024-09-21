@@ -4,5 +4,7 @@ namespace App\Enums;
 
 enum ContentType: string
 {
-    case APPLICATION_JSON = 'application/json';
+    case COURSE = 'Course';
+    case LIVE_LEARNING = 'Live Learning';
+    case PROGRAM = 'Program';
 }

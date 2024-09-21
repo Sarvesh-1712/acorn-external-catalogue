@@ -2,7 +2,7 @@
 
 namespace App\Models\request;
 
-use App\Enums\ContentType;
+use App\Enums\RequestContentType;
 use App\Enums\RequestType;
 
 use Exception;
@@ -23,7 +23,7 @@ class FetchContentRequest extends BaseRequest {
 
     public function getHeaders(): array {
         $token = env('SERVER_AUTHORISATION_TOKEN');
-        $contentType = ContentType::APPLICATION_JSON->value;
+        $contentType = RequestContentType::APPLICATION_JSON->value;
 
         if ($token) {
             return array(

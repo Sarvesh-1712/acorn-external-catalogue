@@ -6,6 +6,11 @@ use \App\Models\request\FetchContentRequest;
 use GuzzleHttp\Client;
 use Inertia\Inertia;
 
+use App\Enums\ContentType;
+use App\Models\Content\Course;
+use App\Models\Content\LiveLearning;
+use App\Models\Content\Program;
+
 use Exception;
 
 class CatalogueController extends Controller {
@@ -24,12 +29,25 @@ class CatalogueController extends Controller {
             $response = $this->client->request($fetchContentRequest->getType()->value, $fetchContentRequest->getUrl(), [
                 'headers' => $fetchContentRequest->getHeaders(),
             ]);
+            
             $data = json_decode($response->getBody(), true);
 
-            return  Inertia::render('ExternalCatalogue', [
-                'content' => $data,
-            ]);
+            if ($data['status'] == 'Complete') {
+                $contents = [];
 
+                foreach($data['data']['items'] as $content) {
+                    if ($content['contenttype'] == ContentType::COURSE->value) {
+                        $contents[] = (new Course($content['contentid'], $content['fullname'], $content['imageurl'], $content['summary'], $content['duration']))->toArray();
+                    } else if($content['contenttype'] == ContentType::LIVE_LEARNING->value) {
+                        $contents[] = (new LiveLearning($content['contentid'], $content['fullname'], $content['imageurl'], $content['summary']))->toArray();
+                    } else if($content['contenttype'] == ContentType::PROGRAM->value) {
+                        $contents[] = (new Program($content['contentid'], $content['fullname'], $content['imageurl'], $content['summary']))->toArray();
+                    } 
+                }
+                return  Inertia::render('ExternalCatalogue', [
+                    'contents' => $contents,
+                ]);
+            }
         } catch (\Exception $e) {
             return response()->json(['error' => 'Unable to fetch data: ' . $e->getMessage()], 500);
         }
