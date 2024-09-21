@@ -1,32 +1,29 @@
 import React from 'react';
-import { Inertia } from '@inertiajs/inertia';
 import { Box, Button, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     container: {
         padding: '4',
         textAlign: 'center',
     },
-    button: {
-        marginTop: '6px !important'
-    }
 }));
 
 
 const AcornHome = () => {
     const classes = useStyles();
+    const navigate = useNavigate();
+
     return (
-        <>
-            <Box className={classes.container}>
-                <Typography variant="h4" component="h1">
-                    Welcome to Acorn's External Catalogue System
-                </Typography>
-                <Button className={classes.button} variant="contained" color="primary" onClick={(() => Inertia.visit('/external-catalogue'))}>
-                    View Catalogues
-                </Button>
-            </Box>
-        </>
+        <Box className={classes.container}>
+            <Typography variant="h4" component="h1">
+                Welcome to Acorn's External Catalogue System
+            </Typography>
+            <Button variant="contained" color="primary" onClick={(() => navigate('/catalogue'))}>
+                View Catalogue
+            </Button>
+        </Box>    
     );
 };
 

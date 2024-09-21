@@ -1,11 +1,22 @@
 import React from 'react';
-import { createInertiaApp } from '@inertiajs/inertia-react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
+import AcornHome from './Page/AcornHome';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import CatalogueContent from './Page/CatalogueContent';
 
-createInertiaApp({
-    resolve: name => require(`./Page/${name}`),
-    setup({ el, App, props }) {
-        const root = createRoot(el);
-        root.render(<App {...props} />);
-    },
-});
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<AcornHome />} />
+                <Route path="/catalogue" element={<CatalogueContent />} />
+            </Routes>
+        </Router>
+    );
+};
+
+const app = document.getElementById('app');
+if (app) {
+    const root = ReactDOM.createRoot(app);
+    root.render(<App />);
+}

@@ -10,6 +10,7 @@
         "@babel/preset-react": "^7.24.7",
         "@testing-library/jest-dom": "^6.5.0",
         "@testing-library/react": "^16.0.1",
+        "@types/dompurify": "^3.0.5",
         "@types/react": "^18.3.7",
         "@types/react-dom": "^18.3.0",
         "axios": "^1.7.4",
@@ -27,6 +28,8 @@
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
         "@mui/material": "^6.1.1",
-        "@mui/styles": "^6.1.1"
+        "@mui/styles": "^6.1.1",
+        "dompurify": "^3.1.6",
+        "react-router-dom": "^6.26.2"
     }
 }
