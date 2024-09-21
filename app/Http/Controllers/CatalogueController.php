@@ -27,7 +27,7 @@ class CatalogueController extends Controller {
             $data = json_decode($response->getBody(), true);
 
             return  Inertia::render('ExternalCatalogue', [
-                'contents' => $data,
+                'content' => $data,
             ]);
 
         } catch (\Exception $e) {
