@@ -49,6 +49,11 @@ And then open the terminal,
 cd acorn-external-catalogue
 ```
 
+Switch to master branch, 
+```
+git checkout master
+```
+
 ### Step 2: Install the dependencies
 Install the laravel related dependencies using,
 ```
