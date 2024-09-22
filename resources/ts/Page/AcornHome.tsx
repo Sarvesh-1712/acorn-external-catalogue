@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 const AcornHome = () => {
     const classes = useStyles();
     const navigate = useNavigate();

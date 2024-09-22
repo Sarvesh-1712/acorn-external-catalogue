@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardContainer from '../Component/CardContainer';
+import CardContainer from '../Component/CardsContainer';
 import Header from '../Component/Header';
 import axios from 'axios';
 
