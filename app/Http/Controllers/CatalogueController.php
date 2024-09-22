@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use \App\Models\request\FetchContentRequest;
 use GuzzleHttp\Client;
-use Inertia\Inertia;
 
 use App\Enums\ContentType;
 use App\Models\Content\Course;
@@ -45,6 +44,8 @@ class CatalogueController extends Controller {
                     } 
                 }
                 return  response()->json($contents);
+            } else {
+                return response()->json(['error' => 'Encountered issues while fetching data. Status is not complete.'], 500);
             }
         } catch (\Exception $e) {
             return response()->json(['error' => 'Unable to fetch data: ' . $e->getMessage()], 500);

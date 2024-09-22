@@ -9,4 +9,8 @@ class LiveLearning extends Content
     public function getContentType() {
         return ContentType::LIVE_LEARNING->value;
     }
+
+    public function getBadgeColor() {
+        return '#bbdefb';
+    }
 }

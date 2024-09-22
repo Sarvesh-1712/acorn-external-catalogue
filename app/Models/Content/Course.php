@@ -21,6 +21,10 @@ class Course extends Content
         return $this->duration;
     }
 
+    public function getBadgeColor() {
+        return '#ffccbc';
+    }
+
     public function toArray(): array {
         return array_merge(parent::toArray(), [
             'duration' => $this->getDuration(),

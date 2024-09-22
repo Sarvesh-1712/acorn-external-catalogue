@@ -12,6 +12,7 @@ abstract class Content
     protected $summary;
     protected $contentid;
     protected $contenttype;
+    protected $badgecolor;
 
     public function __construct($contentid, $fullname, $imageurl, $summary) {
         $this->contentid = $contentid;
@@ -19,6 +20,7 @@ abstract class Content
         $this->summary = $summary;
         $this->imageurl = $imageurl;
         $this->contenttype = $this->getContentType();
+        $this->badgecolor = $this->getBadgeColor();
     }
 
     public function getFullname() {
@@ -39,13 +41,16 @@ abstract class Content
 
     abstract function getContentType();
 
+    abstract function getBadgeColor();
+
     public function toArray(): array {
         return array(
             "fullname" => $this->getFullname(),
             "summary" => $this->getSummary(),
             "imageurl" => $this->getImageurl(),
             "contentid" => $this->getContentId(),
-            "contenttype" => $this->getContentType()
+            "contenttype" => $this->getContentType(),
+            "badgecolor" => $this->getBadgeColor(),
         );
     }
 }
