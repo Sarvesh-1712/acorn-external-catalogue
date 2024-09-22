@@ -11,10 +11,11 @@ class FetchContentRequest extends BaseRequest {
 
     public function getUrl(): string {
         $baseUrl = env('SERVER_BASE_URL');
-        if ($baseUrl) {
-            return $baseUrl.'/local/acorn_coursemanagement/index.php/api/1.1/external_catalogue/3?perPage=16';
+        $tenancyId = env('TENANCY_ID');
+        if ($baseUrl && $tenancyId) {
+            return $baseUrl.'/local/acorn_coursemanagement/index.php/api/1.1/external_catalogue/'.$tenancyId.'?perPage=16';
         }
-        throw new Exception('ENV error. Server base url not found.');
+        throw new Exception('ENV error. Server url or tenancy id not found.');
     }
 
     public function getType(): RequestType {

@@ -12,7 +12,7 @@ const Header = () => {
                     src="/images/acorn-logo.png"
                     alt="Acorn Home"
                     title="Goto Home"
-                    style={{ width: '150px', height: '50px' }} 
+                    style={{ width: '100px', height: '50px', objectFit: 'cover' }} 
                     onClick={(() => navigate('/'))}
                 />
             </Toolbar>
